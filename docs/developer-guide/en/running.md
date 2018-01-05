@@ -20,7 +20,9 @@ Before running Kapua on Docker, you need to
 1. Install docker
 2. Run `mvn -f assembly -Pdocker` once to build containers
 
+{% hint style='info' %}
 Make sure, the folder in which kapua is checked out is a shared folder so that docker can mount subfolders of it to individual docker images at runtime. 
+{% endhint %}
 
 Now, you can start Kapua by using Docker Compose. To do so, run
   
