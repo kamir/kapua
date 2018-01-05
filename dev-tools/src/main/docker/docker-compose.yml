@@ -66,12 +66,7 @@ services:
     - 8081:8080
   solr:
     image: 'bitnami/solr:latest'
-    labels:
-      kompose.service.type: nodeport
     ports:
-      - '8983:8983'
+    - '8983:8983'
     volumes:
-      - 'solr_data:/bitnami'
-  volumes:
-    solr_data:
-      driver: local
+    - /GITHUB/kapua-solr-data/solr-persistence:/bitnami     
