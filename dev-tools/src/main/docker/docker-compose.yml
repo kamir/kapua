@@ -65,8 +65,8 @@ services:
     ports:
     - 8081:8080
   solr:
-    image: 'bitnami/solr:latest'
+    image: bitnami/solr:latest
     ports:
-    - '8983:8983'
+    - 8983:8983
     volumes:
     - /GITHUB/kapua-solr-data/solr-persistence:/bitnami     
