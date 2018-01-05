@@ -8,19 +8,26 @@ Most of the following descriptions focus on a developer centric
 setup and not on a full blown production setup.
 {% endhint %}
 
+{% hint style='info' %}
+Security aspects, such as encryption of API access and encrypted message transfer are not part of the default setup.
+{% endhint %}
+
+
 ## Docker containers
 
 Before running Kapua on Docker, you need to 
 
 1. Install docker
-1. Run `mvn -f assembly -Pdocker` once to build containers
+2. Run `mvn -f assembly -Pdocker` once to build containers
 
+Make sure, the folder in which kapua is checked out is a shared folder so that docker can mount subfolders of it to individual docker images at runtime. 
 
 Now, you can start Kapua by using Docker Compose. To do so, run
   
     kapua/dev-tools/src/main/docker/docker-deploy.sh
     
 After Kapua has been started, you can navigate your browser to http://localhost:8080 and log in using the following credentials:
+
 `kapua-sys` : `kapua-password`
 
 You can access the API using: http://localhost:8081
