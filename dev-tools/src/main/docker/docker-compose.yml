@@ -52,12 +52,26 @@ services:
     ports:
     - 1883:1883
     - 61614:61614
+    - 8883:8883
   kapua-console:
     image: kapua/kapua-console:${IMAGE_VERSION}
     ports:
     - 8080:8080
+    environment:
+    - DB_PORT_3306_TCP_PORT=3306
+    - DB_PORT_3306_TCP_ADDR=localhost
   kapua-api:
     image: kapua/kapua-api:${IMAGE_VERSION}
     ports:
     - 8081:8080
-
+  solr:
+    image: 'bitnami/solr:latest'
+    labels:
+      kompose.service.type: nodeport
+    ports:
+      - '8983:8983'
+    volumes:
+      - 'solr_data:/bitnami'
+  volumes:
+    solr_data:
+      driver: local
